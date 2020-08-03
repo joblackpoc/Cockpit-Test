@@ -11,7 +11,7 @@
  Target Server Version : 80021
  File Encoding         : 65001
 
- Date: 30/07/2020 10:11:19
+ Date: 03/08/2020 21:50:26
 */
 
 SET NAMES utf8mb4;
@@ -63,7 +63,7 @@ CREATE TABLE `auth_permission`  (
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `auth_permission_content_type_id_codename_01ab375a_uniq`(`content_type_id`, `codename`) USING BTREE,
   CONSTRAINT `auth_permission_content_type_id_2f476e4b_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 105 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 113 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of auth_permission
@@ -92,86 +92,94 @@ INSERT INTO `auth_permission` VALUES (21, 'Can add session', 6, 'add_session');
 INSERT INTO `auth_permission` VALUES (22, 'Can change session', 6, 'change_session');
 INSERT INTO `auth_permission` VALUES (23, 'Can delete session', 6, 'delete_session');
 INSERT INTO `auth_permission` VALUES (24, 'Can view session', 6, 'view_session');
-INSERT INTO `auth_permission` VALUES (25, 'Can add city', 7, 'add_city');
-INSERT INTO `auth_permission` VALUES (26, 'Can change city', 7, 'change_city');
-INSERT INTO `auth_permission` VALUES (27, 'Can delete city', 7, 'delete_city');
-INSERT INTO `auth_permission` VALUES (28, 'Can view city', 7, 'view_city');
-INSERT INTO `auth_permission` VALUES (29, 'Can add country', 8, 'add_country');
-INSERT INTO `auth_permission` VALUES (30, 'Can change country', 8, 'change_country');
-INSERT INTO `auth_permission` VALUES (31, 'Can delete country', 8, 'delete_country');
-INSERT INTO `auth_permission` VALUES (32, 'Can view country', 8, 'view_country');
-INSERT INTO `auth_permission` VALUES (33, 'Can add กลุ่มงาน', 9, 'add_reponse_kpi');
-INSERT INTO `auth_permission` VALUES (34, 'Can change กลุ่มงาน', 9, 'change_reponse_kpi');
-INSERT INTO `auth_permission` VALUES (35, 'Can delete กลุ่มงาน', 9, 'delete_reponse_kpi');
-INSERT INTO `auth_permission` VALUES (36, 'Can view กลุ่มงาน', 9, 'view_reponse_kpi');
-INSERT INTO `auth_permission` VALUES (37, 'Can add จังหวัด', 10, 'add_ssj');
-INSERT INTO `auth_permission` VALUES (38, 'Can change จังหวัด', 10, 'change_ssj');
-INSERT INTO `auth_permission` VALUES (39, 'Can delete จังหวัด', 10, 'delete_ssj');
-INSERT INTO `auth_permission` VALUES (40, 'Can view จังหวัด', 10, 'view_ssj');
-INSERT INTO `auth_permission` VALUES (41, 'Can add profile', 11, 'add_profile');
-INSERT INTO `auth_permission` VALUES (42, 'Can change profile', 11, 'change_profile');
-INSERT INTO `auth_permission` VALUES (43, 'Can delete profile', 11, 'delete_profile');
-INSERT INTO `auth_permission` VALUES (44, 'Can view profile', 11, 'view_profile');
-INSERT INTO `auth_permission` VALUES (45, 'Can add person', 12, 'add_person');
-INSERT INTO `auth_permission` VALUES (46, 'Can change person', 12, 'change_person');
-INSERT INTO `auth_permission` VALUES (47, 'Can delete person', 12, 'delete_person');
-INSERT INTO `auth_permission` VALUES (48, 'Can view person', 12, 'view_person');
-INSERT INTO `auth_permission` VALUES (49, 'Can add ตัวชี้วัด KPI', 13, 'add_kpi');
-INSERT INTO `auth_permission` VALUES (50, 'Can change ตัวชี้วัด KPI', 13, 'change_kpi');
-INSERT INTO `auth_permission` VALUES (51, 'Can delete ตัวชี้วัด KPI', 13, 'delete_kpi');
-INSERT INTO `auth_permission` VALUES (52, 'Can view ตัวชี้วัด KPI', 13, 'view_kpi');
-INSERT INTO `auth_permission` VALUES (53, 'Can add บันทึก KPI', 14, 'add_keyinput');
-INSERT INTO `auth_permission` VALUES (54, 'Can change บันทึก KPI', 14, 'change_keyinput');
-INSERT INTO `auth_permission` VALUES (55, 'Can delete บันทึก KPI', 14, 'delete_keyinput');
-INSERT INTO `auth_permission` VALUES (56, 'Can view บันทึก KPI', 14, 'view_keyinput');
-INSERT INTO `auth_permission` VALUES (57, 'Can add dep', 15, 'add_dep');
-INSERT INTO `auth_permission` VALUES (58, 'Can change dep', 15, 'change_dep');
-INSERT INTO `auth_permission` VALUES (59, 'Can delete dep', 15, 'delete_dep');
-INSERT INTO `auth_permission` VALUES (60, 'Can view dep', 15, 'view_dep');
-INSERT INTO `auth_permission` VALUES (61, 'Can add group', 16, 'add_group');
-INSERT INTO `auth_permission` VALUES (62, 'Can change group', 16, 'change_group');
-INSERT INTO `auth_permission` VALUES (63, 'Can delete group', 16, 'delete_group');
-INSERT INTO `auth_permission` VALUES (64, 'Can view group', 16, 'view_group');
-INSERT INTO `auth_permission` VALUES (65, 'Can add kpi_eval_prov', 17, 'add_kpi_eval_prov');
-INSERT INTO `auth_permission` VALUES (66, 'Can change kpi_eval_prov', 17, 'change_kpi_eval_prov');
-INSERT INTO `auth_permission` VALUES (67, 'Can delete kpi_eval_prov', 17, 'delete_kpi_eval_prov');
-INSERT INTO `auth_permission` VALUES (68, 'Can view kpi_eval_prov', 17, 'view_kpi_eval_prov');
-INSERT INTO `auth_permission` VALUES (69, 'Can add kpi_eval_rh', 18, 'add_kpi_eval_rh');
-INSERT INTO `auth_permission` VALUES (70, 'Can change kpi_eval_rh', 18, 'change_kpi_eval_rh');
-INSERT INTO `auth_permission` VALUES (71, 'Can delete kpi_eval_rh', 18, 'delete_kpi_eval_rh');
-INSERT INTO `auth_permission` VALUES (72, 'Can view kpi_eval_rh', 18, 'view_kpi_eval_rh');
-INSERT INTO `auth_permission` VALUES (73, 'Can add kpi_hosp', 19, 'add_kpi_hosp');
-INSERT INTO `auth_permission` VALUES (74, 'Can change kpi_hosp', 19, 'change_kpi_hosp');
-INSERT INTO `auth_permission` VALUES (75, 'Can delete kpi_hosp', 19, 'delete_kpi_hosp');
-INSERT INTO `auth_permission` VALUES (76, 'Can view kpi_hosp', 19, 'view_kpi_hosp');
-INSERT INTO `auth_permission` VALUES (77, 'Can add pk_byear', 20, 'add_pk_byear');
-INSERT INTO `auth_permission` VALUES (78, 'Can change pk_byear', 20, 'change_pk_byear');
-INSERT INTO `auth_permission` VALUES (79, 'Can delete pk_byear', 20, 'delete_pk_byear');
-INSERT INTO `auth_permission` VALUES (80, 'Can view pk_byear', 20, 'view_pk_byear');
+INSERT INTO `auth_permission` VALUES (25, 'Can add chospcode', 7, 'add_chospcode');
+INSERT INTO `auth_permission` VALUES (26, 'Can change chospcode', 7, 'change_chospcode');
+INSERT INTO `auth_permission` VALUES (27, 'Can delete chospcode', 7, 'delete_chospcode');
+INSERT INTO `auth_permission` VALUES (28, 'Can view chospcode', 7, 'view_chospcode');
+INSERT INTO `auth_permission` VALUES (29, 'Can add city', 8, 'add_city');
+INSERT INTO `auth_permission` VALUES (30, 'Can change city', 8, 'change_city');
+INSERT INTO `auth_permission` VALUES (31, 'Can delete city', 8, 'delete_city');
+INSERT INTO `auth_permission` VALUES (32, 'Can view city', 8, 'view_city');
+INSERT INTO `auth_permission` VALUES (33, 'Can add cmpo', 9, 'add_cmpo');
+INSERT INTO `auth_permission` VALUES (34, 'Can change cmpo', 9, 'change_cmpo');
+INSERT INTO `auth_permission` VALUES (35, 'Can delete cmpo', 9, 'delete_cmpo');
+INSERT INTO `auth_permission` VALUES (36, 'Can view cmpo', 9, 'view_cmpo');
+INSERT INTO `auth_permission` VALUES (37, 'Can add country', 10, 'add_country');
+INSERT INTO `auth_permission` VALUES (38, 'Can change country', 10, 'change_country');
+INSERT INTO `auth_permission` VALUES (39, 'Can delete country', 10, 'delete_country');
+INSERT INTO `auth_permission` VALUES (40, 'Can view country', 10, 'view_country');
+INSERT INTO `auth_permission` VALUES (41, 'Can add dep', 11, 'add_dep');
+INSERT INTO `auth_permission` VALUES (42, 'Can change dep', 11, 'change_dep');
+INSERT INTO `auth_permission` VALUES (43, 'Can delete dep', 11, 'delete_dep');
+INSERT INTO `auth_permission` VALUES (44, 'Can view dep', 11, 'view_dep');
+INSERT INTO `auth_permission` VALUES (45, 'Can add group', 12, 'add_group');
+INSERT INTO `auth_permission` VALUES (46, 'Can change group', 12, 'change_group');
+INSERT INTO `auth_permission` VALUES (47, 'Can delete group', 12, 'delete_group');
+INSERT INTO `auth_permission` VALUES (48, 'Can view group', 12, 'view_group');
+INSERT INTO `auth_permission` VALUES (49, 'Can add kpi_eval_prov', 13, 'add_kpi_eval_prov');
+INSERT INTO `auth_permission` VALUES (50, 'Can change kpi_eval_prov', 13, 'change_kpi_eval_prov');
+INSERT INTO `auth_permission` VALUES (51, 'Can delete kpi_eval_prov', 13, 'delete_kpi_eval_prov');
+INSERT INTO `auth_permission` VALUES (52, 'Can view kpi_eval_prov', 13, 'view_kpi_eval_prov');
+INSERT INTO `auth_permission` VALUES (53, 'Can add kpi_eval_rh', 14, 'add_kpi_eval_rh');
+INSERT INTO `auth_permission` VALUES (54, 'Can change kpi_eval_rh', 14, 'change_kpi_eval_rh');
+INSERT INTO `auth_permission` VALUES (55, 'Can delete kpi_eval_rh', 14, 'delete_kpi_eval_rh');
+INSERT INTO `auth_permission` VALUES (56, 'Can view kpi_eval_rh', 14, 'view_kpi_eval_rh');
+INSERT INTO `auth_permission` VALUES (57, 'Can add kpi_hosp', 15, 'add_kpi_hosp');
+INSERT INTO `auth_permission` VALUES (58, 'Can change kpi_hosp', 15, 'change_kpi_hosp');
+INSERT INTO `auth_permission` VALUES (59, 'Can delete kpi_hosp', 15, 'delete_kpi_hosp');
+INSERT INTO `auth_permission` VALUES (60, 'Can view kpi_hosp', 15, 'view_kpi_hosp');
+INSERT INTO `auth_permission` VALUES (61, 'Can add kpi_index', 16, 'add_kpi_index');
+INSERT INTO `auth_permission` VALUES (62, 'Can change kpi_index', 16, 'change_kpi_index');
+INSERT INTO `auth_permission` VALUES (63, 'Can delete kpi_index', 16, 'delete_kpi_index');
+INSERT INTO `auth_permission` VALUES (64, 'Can view kpi_index', 16, 'view_kpi_index');
+INSERT INTO `auth_permission` VALUES (65, 'Can add kpi_index_ old', 17, 'add_kpi_index_old');
+INSERT INTO `auth_permission` VALUES (66, 'Can change kpi_index_ old', 17, 'change_kpi_index_old');
+INSERT INTO `auth_permission` VALUES (67, 'Can delete kpi_index_ old', 17, 'delete_kpi_index_old');
+INSERT INTO `auth_permission` VALUES (68, 'Can view kpi_index_ old', 17, 'view_kpi_index_old');
+INSERT INTO `auth_permission` VALUES (69, 'Can add pk_byear', 18, 'add_pk_byear');
+INSERT INTO `auth_permission` VALUES (70, 'Can change pk_byear', 18, 'change_pk_byear');
+INSERT INTO `auth_permission` VALUES (71, 'Can delete pk_byear', 18, 'delete_pk_byear');
+INSERT INTO `auth_permission` VALUES (72, 'Can view pk_byear', 18, 'view_pk_byear');
+INSERT INTO `auth_permission` VALUES (73, 'Can add กลุ่มงาน', 19, 'add_reponse_kpi');
+INSERT INTO `auth_permission` VALUES (74, 'Can change กลุ่มงาน', 19, 'change_reponse_kpi');
+INSERT INTO `auth_permission` VALUES (75, 'Can delete กลุ่มงาน', 19, 'delete_reponse_kpi');
+INSERT INTO `auth_permission` VALUES (76, 'Can view กลุ่มงาน', 19, 'view_reponse_kpi');
+INSERT INTO `auth_permission` VALUES (77, 'Can add จังหวัด', 20, 'add_ssj');
+INSERT INTO `auth_permission` VALUES (78, 'Can change จังหวัด', 20, 'change_ssj');
+INSERT INTO `auth_permission` VALUES (79, 'Can delete จังหวัด', 20, 'delete_ssj');
+INSERT INTO `auth_permission` VALUES (80, 'Can view จังหวัด', 20, 'view_ssj');
 INSERT INTO `auth_permission` VALUES (81, 'Can add trole', 21, 'add_trole');
 INSERT INTO `auth_permission` VALUES (82, 'Can change trole', 21, 'change_trole');
 INSERT INTO `auth_permission` VALUES (83, 'Can delete trole', 21, 'delete_trole');
 INSERT INTO `auth_permission` VALUES (84, 'Can view trole', 21, 'view_trole');
-INSERT INTO `auth_permission` VALUES (85, 'Can add chospcode', 22, 'add_chospcode');
-INSERT INTO `auth_permission` VALUES (86, 'Can change chospcode', 22, 'change_chospcode');
-INSERT INTO `auth_permission` VALUES (87, 'Can delete chospcode', 22, 'delete_chospcode');
-INSERT INTO `auth_permission` VALUES (88, 'Can view chospcode', 22, 'view_chospcode');
-INSERT INTO `auth_permission` VALUES (89, 'Can add task', 23, 'add_task');
-INSERT INTO `auth_permission` VALUES (90, 'Can change task', 23, 'change_task');
-INSERT INTO `auth_permission` VALUES (91, 'Can delete task', 23, 'delete_task');
-INSERT INTO `auth_permission` VALUES (92, 'Can view task', 23, 'view_task');
-INSERT INTO `auth_permission` VALUES (93, 'Can add kpi_input', 24, 'add_kpi_input');
-INSERT INTO `auth_permission` VALUES (94, 'Can change kpi_input', 24, 'change_kpi_input');
-INSERT INTO `auth_permission` VALUES (95, 'Can delete kpi_input', 24, 'delete_kpi_input');
-INSERT INTO `auth_permission` VALUES (96, 'Can view kpi_input', 24, 'view_kpi_input');
+INSERT INTO `auth_permission` VALUES (85, 'Can add task', 22, 'add_task');
+INSERT INTO `auth_permission` VALUES (86, 'Can change task', 22, 'change_task');
+INSERT INTO `auth_permission` VALUES (87, 'Can delete task', 22, 'delete_task');
+INSERT INTO `auth_permission` VALUES (88, 'Can view task', 22, 'view_task');
+INSERT INTO `auth_permission` VALUES (89, 'Can add profile', 23, 'add_profile');
+INSERT INTO `auth_permission` VALUES (90, 'Can change profile', 23, 'change_profile');
+INSERT INTO `auth_permission` VALUES (91, 'Can delete profile', 23, 'delete_profile');
+INSERT INTO `auth_permission` VALUES (92, 'Can view profile', 23, 'view_profile');
+INSERT INTO `auth_permission` VALUES (93, 'Can add person', 24, 'add_person');
+INSERT INTO `auth_permission` VALUES (94, 'Can change person', 24, 'change_person');
+INSERT INTO `auth_permission` VALUES (95, 'Can delete person', 24, 'delete_person');
+INSERT INTO `auth_permission` VALUES (96, 'Can view person', 24, 'view_person');
 INSERT INTO `auth_permission` VALUES (97, 'Can add kpi_prov', 25, 'add_kpi_prov');
 INSERT INTO `auth_permission` VALUES (98, 'Can change kpi_prov', 25, 'change_kpi_prov');
 INSERT INTO `auth_permission` VALUES (99, 'Can delete kpi_prov', 25, 'delete_kpi_prov');
 INSERT INTO `auth_permission` VALUES (100, 'Can view kpi_prov', 25, 'view_kpi_prov');
-INSERT INTO `auth_permission` VALUES (101, 'Can add kpi_index', 26, 'add_kpi_index');
-INSERT INTO `auth_permission` VALUES (102, 'Can change kpi_index', 26, 'change_kpi_index');
-INSERT INTO `auth_permission` VALUES (103, 'Can delete kpi_index', 26, 'delete_kpi_index');
-INSERT INTO `auth_permission` VALUES (104, 'Can view kpi_index', 26, 'view_kpi_index');
+INSERT INTO `auth_permission` VALUES (101, 'Can add kpi_input', 26, 'add_kpi_input');
+INSERT INTO `auth_permission` VALUES (102, 'Can change kpi_input', 26, 'change_kpi_input');
+INSERT INTO `auth_permission` VALUES (103, 'Can delete kpi_input', 26, 'delete_kpi_input');
+INSERT INTO `auth_permission` VALUES (104, 'Can view kpi_input', 26, 'view_kpi_input');
+INSERT INTO `auth_permission` VALUES (105, 'Can add ตัวชี้วัด KPI', 27, 'add_kpi');
+INSERT INTO `auth_permission` VALUES (106, 'Can change ตัวชี้วัด KPI', 27, 'change_kpi');
+INSERT INTO `auth_permission` VALUES (107, 'Can delete ตัวชี้วัด KPI', 27, 'delete_kpi');
+INSERT INTO `auth_permission` VALUES (108, 'Can view ตัวชี้วัด KPI', 27, 'view_kpi');
+INSERT INTO `auth_permission` VALUES (109, 'Can add บันทึก KPI', 28, 'add_keyinput');
+INSERT INTO `auth_permission` VALUES (110, 'Can change บันทึก KPI', 28, 'change_keyinput');
+INSERT INTO `auth_permission` VALUES (111, 'Can delete บันทึก KPI', 28, 'delete_keyinput');
+INSERT INTO `auth_permission` VALUES (112, 'Can view บันทึก KPI', 28, 'view_keyinput');
 
 -- ----------------------------
 -- Table structure for auth_user
@@ -196,7 +204,7 @@ CREATE TABLE `auth_user`  (
 -- ----------------------------
 -- Records of auth_user
 -- ----------------------------
-INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$180000$V6hmrEcZau8A$/yEFjEuCMZNarh6IVcqnEeIQgOknr7Zh2XiQ3PmY2g8=', '2020-07-29 15:25:22.445595', 1, 'admin', '', '', 'joblackpoc@gmail.com', 1, 1, '2020-07-29 15:24:53.380113');
+INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$180000$9ZnAMXD6cAag$oqyC+6WIrxAzSFivhiiiHGKsMIyBC3LD/b2peUOH4ZM=', '2020-08-03 12:54:38.807636', 1, 'admin', '', '', 'joblackpoc@gmail.com', 1, 1, '2020-08-03 12:54:00.337574');
 
 -- ----------------------------
 -- Table structure for auth_user_groups
@@ -254,11 +262,27 @@ CREATE TABLE `django_admin_log`  (
   INDEX `django_admin_log_user_id_c564eba6_fk_auth_user_id`(`user_id`) USING BTREE,
   CONSTRAINT `django_admin_log_content_type_id_c4bce8eb_fk_django_co` FOREIGN KEY (`content_type_id`) REFERENCES `django_content_type` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `django_admin_log_user_id_c564eba6_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_admin_log
 -- ----------------------------
+INSERT INTO `django_admin_log` VALUES (1, '2020-08-03 13:42:45.298459', '1', 'เมืองชุมพร', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (2, '2020-08-03 13:42:56.986372', '2', 'ท่าแซะ', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (3, '2020-08-03 13:43:08.893559', '3', 'ปะทิว', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (4, '2020-08-03 13:43:21.542694', '4', 'หลังสวน', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (5, '2020-08-03 13:43:29.988232', '5', 'ละแม', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (6, '2020-08-03 13:43:40.714416', '6', 'พะโต๊ะ', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (7, '2020-08-03 13:43:53.921645', '7', 'สวี', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (8, '2020-08-03 13:44:18.801992', '8', 'ทุ่งตะโก', 1, '[{\"added\": {}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (9, '2020-08-03 14:21:33.217926', '8', 'Thungtago', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (10, '2020-08-03 14:21:42.088678', '7', 'Sawee', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (11, '2020-08-03 14:21:51.014351', '6', 'Phatho', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (12, '2020-08-03 14:21:59.036985', '5', 'Lamae', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (13, '2020-08-03 14:22:09.876056', '4', 'Langsuan', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (14, '2020-08-03 14:22:21.569390', '3', 'Phathui', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (15, '2020-08-03 14:22:31.268284', '2', 'Thasae', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
+INSERT INTO `django_admin_log` VALUES (16, '2020-08-03 14:22:44.252644', '1', 'Muang Chumphon', 2, '[{\"changed\": {\"fields\": [\"Name\"]}}]', 9, 1);
 
 -- ----------------------------
 -- Table structure for django_content_type
@@ -270,7 +294,7 @@ CREATE TABLE `django_content_type`  (
   `model` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   UNIQUE INDEX `django_content_type_app_label_model_76bd3d3b_uniq`(`app_label`, `model`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_content_type
@@ -280,25 +304,27 @@ INSERT INTO `django_content_type` VALUES (3, 'auth', 'group');
 INSERT INTO `django_content_type` VALUES (2, 'auth', 'permission');
 INSERT INTO `django_content_type` VALUES (4, 'auth', 'user');
 INSERT INTO `django_content_type` VALUES (5, 'contenttypes', 'contenttype');
-INSERT INTO `django_content_type` VALUES (22, 'main', 'chospcode');
-INSERT INTO `django_content_type` VALUES (7, 'main', 'city');
-INSERT INTO `django_content_type` VALUES (8, 'main', 'country');
-INSERT INTO `django_content_type` VALUES (15, 'main', 'dep');
-INSERT INTO `django_content_type` VALUES (16, 'main', 'group');
-INSERT INTO `django_content_type` VALUES (14, 'main', 'keyinput');
-INSERT INTO `django_content_type` VALUES (13, 'main', 'kpi');
-INSERT INTO `django_content_type` VALUES (17, 'main', 'kpi_eval_prov');
-INSERT INTO `django_content_type` VALUES (18, 'main', 'kpi_eval_rh');
-INSERT INTO `django_content_type` VALUES (19, 'main', 'kpi_hosp');
-INSERT INTO `django_content_type` VALUES (26, 'main', 'kpi_index');
-INSERT INTO `django_content_type` VALUES (24, 'main', 'kpi_input');
+INSERT INTO `django_content_type` VALUES (7, 'main', 'chospcode');
+INSERT INTO `django_content_type` VALUES (8, 'main', 'city');
+INSERT INTO `django_content_type` VALUES (9, 'main', 'cmpo');
+INSERT INTO `django_content_type` VALUES (10, 'main', 'country');
+INSERT INTO `django_content_type` VALUES (11, 'main', 'dep');
+INSERT INTO `django_content_type` VALUES (12, 'main', 'group');
+INSERT INTO `django_content_type` VALUES (28, 'main', 'keyinput');
+INSERT INTO `django_content_type` VALUES (27, 'main', 'kpi');
+INSERT INTO `django_content_type` VALUES (13, 'main', 'kpi_eval_prov');
+INSERT INTO `django_content_type` VALUES (14, 'main', 'kpi_eval_rh');
+INSERT INTO `django_content_type` VALUES (15, 'main', 'kpi_hosp');
+INSERT INTO `django_content_type` VALUES (16, 'main', 'kpi_index');
+INSERT INTO `django_content_type` VALUES (17, 'main', 'kpi_index_old');
+INSERT INTO `django_content_type` VALUES (26, 'main', 'kpi_input');
 INSERT INTO `django_content_type` VALUES (25, 'main', 'kpi_prov');
-INSERT INTO `django_content_type` VALUES (12, 'main', 'person');
-INSERT INTO `django_content_type` VALUES (20, 'main', 'pk_byear');
-INSERT INTO `django_content_type` VALUES (11, 'main', 'profile');
-INSERT INTO `django_content_type` VALUES (9, 'main', 'reponse_kpi');
-INSERT INTO `django_content_type` VALUES (10, 'main', 'ssj');
-INSERT INTO `django_content_type` VALUES (23, 'main', 'task');
+INSERT INTO `django_content_type` VALUES (24, 'main', 'person');
+INSERT INTO `django_content_type` VALUES (18, 'main', 'pk_byear');
+INSERT INTO `django_content_type` VALUES (23, 'main', 'profile');
+INSERT INTO `django_content_type` VALUES (19, 'main', 'reponse_kpi');
+INSERT INTO `django_content_type` VALUES (20, 'main', 'ssj');
+INSERT INTO `django_content_type` VALUES (22, 'main', 'task');
 INSERT INTO `django_content_type` VALUES (21, 'main', 'trole');
 INSERT INTO `django_content_type` VALUES (6, 'sessions', 'session');
 
@@ -312,30 +338,30 @@ CREATE TABLE `django_migrations`  (
   `name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `applied` datetime(6) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of django_migrations
 -- ----------------------------
-INSERT INTO `django_migrations` VALUES (1, 'contenttypes', '0001_initial', '2020-07-29 15:24:21.486997');
-INSERT INTO `django_migrations` VALUES (2, 'auth', '0001_initial', '2020-07-29 15:24:21.653901');
-INSERT INTO `django_migrations` VALUES (3, 'admin', '0001_initial', '2020-07-29 15:24:22.143604');
-INSERT INTO `django_migrations` VALUES (4, 'admin', '0002_logentry_remove_auto_add', '2020-07-29 15:24:22.258177');
-INSERT INTO `django_migrations` VALUES (5, 'admin', '0003_logentry_add_action_flag_choices', '2020-07-29 15:24:22.266158');
-INSERT INTO `django_migrations` VALUES (6, 'contenttypes', '0002_remove_content_type_name', '2020-07-29 15:24:22.380597');
-INSERT INTO `django_migrations` VALUES (7, 'auth', '0002_alter_permission_name_max_length', '2020-07-29 15:24:22.462056');
-INSERT INTO `django_migrations` VALUES (8, 'auth', '0003_alter_user_email_max_length', '2020-07-29 15:24:22.547045');
-INSERT INTO `django_migrations` VALUES (9, 'auth', '0004_alter_user_username_opts', '2020-07-29 15:24:22.555041');
-INSERT INTO `django_migrations` VALUES (10, 'auth', '0005_alter_user_last_login_null', '2020-07-29 15:24:22.608011');
-INSERT INTO `django_migrations` VALUES (11, 'auth', '0006_require_contenttypes_0002', '2020-07-29 15:24:22.610009');
-INSERT INTO `django_migrations` VALUES (12, 'auth', '0007_alter_validators_add_error_messages', '2020-07-29 15:24:22.625001');
-INSERT INTO `django_migrations` VALUES (13, 'auth', '0008_alter_user_username_max_length', '2020-07-29 15:24:22.698958');
-INSERT INTO `django_migrations` VALUES (14, 'auth', '0009_alter_user_last_name_max_length', '2020-07-29 15:24:22.774915');
-INSERT INTO `django_migrations` VALUES (15, 'auth', '0010_alter_group_name_max_length', '2020-07-29 15:24:22.854869');
-INSERT INTO `django_migrations` VALUES (16, 'auth', '0011_update_proxy_permissions', '2020-07-29 15:24:22.862864');
-INSERT INTO `django_migrations` VALUES (17, 'main', '0001_initial', '2020-07-29 15:24:23.180098');
-INSERT INTO `django_migrations` VALUES (18, 'sessions', '0001_initial', '2020-07-29 15:24:23.679812');
-INSERT INTO `django_migrations` VALUES (19, 'main', '0002_chospcode_dep_group_kpi_eval_prov_kpi_eval_rh_kpi_hosp_kpi_index_kpi_input_kpi_prov_pk_byear_task_tr', '2020-07-29 15:31:06.513681');
+INSERT INTO `django_migrations` VALUES (1, 'contenttypes', '0001_initial', '2020-08-03 12:53:23.829458');
+INSERT INTO `django_migrations` VALUES (2, 'auth', '0001_initial', '2020-08-03 12:53:23.998362');
+INSERT INTO `django_migrations` VALUES (3, 'admin', '0001_initial', '2020-08-03 12:53:24.500436');
+INSERT INTO `django_migrations` VALUES (4, 'admin', '0002_logentry_remove_auto_add', '2020-08-03 12:53:24.636332');
+INSERT INTO `django_migrations` VALUES (5, 'admin', '0003_logentry_add_action_flag_choices', '2020-08-03 12:53:24.644339');
+INSERT INTO `django_migrations` VALUES (6, 'contenttypes', '0002_remove_content_type_name', '2020-08-03 12:53:24.757262');
+INSERT INTO `django_migrations` VALUES (7, 'auth', '0002_alter_permission_name_max_length', '2020-08-03 12:53:24.814229');
+INSERT INTO `django_migrations` VALUES (8, 'auth', '0003_alter_user_email_max_length', '2020-08-03 12:53:24.897181');
+INSERT INTO `django_migrations` VALUES (9, 'auth', '0004_alter_user_username_opts', '2020-08-03 12:53:24.905177');
+INSERT INTO `django_migrations` VALUES (10, 'auth', '0005_alter_user_last_login_null', '2020-08-03 12:53:24.985132');
+INSERT INTO `django_migrations` VALUES (11, 'auth', '0006_require_contenttypes_0002', '2020-08-03 12:53:24.989129');
+INSERT INTO `django_migrations` VALUES (12, 'auth', '0007_alter_validators_add_error_messages', '2020-08-03 12:53:25.000122');
+INSERT INTO `django_migrations` VALUES (13, 'auth', '0008_alter_user_username_max_length', '2020-08-03 12:53:25.097434');
+INSERT INTO `django_migrations` VALUES (14, 'auth', '0009_alter_user_last_name_max_length', '2020-08-03 12:53:25.180386');
+INSERT INTO `django_migrations` VALUES (15, 'auth', '0010_alter_group_name_max_length', '2020-08-03 12:53:25.268335');
+INSERT INTO `django_migrations` VALUES (16, 'auth', '0011_update_proxy_permissions', '2020-08-03 12:53:25.277340');
+INSERT INTO `django_migrations` VALUES (17, 'main', '0001_initial', '2020-08-03 12:53:26.024906');
+INSERT INTO `django_migrations` VALUES (18, 'sessions', '0001_initial', '2020-08-03 12:53:26.941381');
+INSERT INTO `django_migrations` VALUES (19, 'main', '0002_auto_20200803_2116', '2020-08-03 14:16:32.127056');
 
 -- ----------------------------
 -- Table structure for django_session
@@ -352,7 +378,7 @@ CREATE TABLE `django_session`  (
 -- ----------------------------
 -- Records of django_session
 -- ----------------------------
-INSERT INTO `django_session` VALUES ('isfanc890jm0p1mlndoft0bvwwgrmo39', 'MTNjZTFmYWUzYjUzZDUzMzIzZDhhNDJkMmQ1YWQ0OGE2MTAzY2ZlNTp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiIwMDU1MDM0NDBlN2E1NmQ3OTYxN2ZjZWQxMjdjM2U3NTJhMjc3OGU5In0=', '2020-08-12 15:25:22.449593');
+INSERT INTO `django_session` VALUES ('ryp88uh3yj6jq2c5o067q4hsccifumsa', 'MzJkNzg4NTg1NzA4OGJkMzFhMDI5OTVhZWNmMGIzNzAzMjg0ZGMyYjp7Il9hdXRoX3VzZXJfaWQiOiIxIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoiZGphbmdvLmNvbnRyaWIuYXV0aC5iYWNrZW5kcy5Nb2RlbEJhY2tlbmQiLCJfYXV0aF91c2VyX2hhc2giOiJiZjdlODU1MDIxMzQ2NjE0OTY5ZWI3NWU1NWM4ZmM3NmEyNWY1MzE0In0=', '2020-08-17 12:54:38.811640');
 
 -- ----------------------------
 -- Table structure for main_chospcode
@@ -390,6 +416,29 @@ CREATE TABLE `main_city`  (
 -- ----------------------------
 -- Records of main_city
 -- ----------------------------
+
+-- ----------------------------
+-- Table structure for main_cmpo
+-- ----------------------------
+DROP TABLE IF EXISTS `main_cmpo`;
+CREATE TABLE `main_cmpo`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `population` int(0) UNSIGNED NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of main_cmpo
+-- ----------------------------
+INSERT INTO `main_cmpo` VALUES (1, 'Muang Chumphon', 115071);
+INSERT INTO `main_cmpo` VALUES (2, 'Thasae', 73203);
+INSERT INTO `main_cmpo` VALUES (3, 'Phathui', 36750);
+INSERT INTO `main_cmpo` VALUES (4, 'Langsuan', 53347);
+INSERT INTO `main_cmpo` VALUES (5, 'Lamae', 22815);
+INSERT INTO `main_cmpo` VALUES (6, 'Phatho', 20730);
+INSERT INTO `main_cmpo` VALUES (7, 'Sawee', 60273);
+INSERT INTO `main_cmpo` VALUES (8, 'Thungtago', 19688);
 
 -- ----------------------------
 -- Table structure for main_country
@@ -577,6 +626,45 @@ CREATE TABLE `main_kpi_index`  (
   `kpi` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `kpi_name` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `ex` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `goal` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `cri_type` varchar(55) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `hdc` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `respon` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `etc` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `kpi_year` varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `success_type` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `main_kpi_id` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `unit` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `static_target` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `kpi_formular` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `kpi_formular_script` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `a` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `b` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `c` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `d` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `e` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `f` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `pa` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `h_kpi` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `active` varchar(1) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL,
+  `note` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  `target` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of main_kpi_index
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for main_kpi_index_old
+-- ----------------------------
+DROP TABLE IF EXISTS `main_kpi_index_old`;
+CREATE TABLE `main_kpi_index_old`  (
+  `id` int(0) NOT NULL AUTO_INCREMENT,
+  `kpi` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `kpi_name` longtext CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `ex` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `goal` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `cri_type` varchar(55) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `hdc` varchar(15) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
@@ -604,7 +692,7 @@ CREATE TABLE `main_kpi_index`  (
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
--- Records of main_kpi_index
+-- Records of main_kpi_index_old
 -- ----------------------------
 
 -- ----------------------------
@@ -746,7 +834,7 @@ CREATE TABLE `main_profile`  (
 -- ----------------------------
 -- Records of main_profile
 -- ----------------------------
-INSERT INTO `main_profile` VALUES (1, NULL, '00068', '1', 'profile_pics/FB_IMG_1559022947973.jpg', 1);
+INSERT INTO `main_profile` VALUES (1, NULL, '00068', '1', 'default.jpg', 1);
 
 -- ----------------------------
 -- Table structure for main_reponse_kpi
