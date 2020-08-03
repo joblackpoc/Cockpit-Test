@@ -413,16 +413,14 @@ class Trole(models.Model):
         return self.code +' - '+self.name
 
 class Cmpo(models.Model):
-    amp_name = models.CharField(max_length=30)
+    name = models.CharField(max_length=30)
     population = models.PositiveIntegerField()
 
     def __str__(self):
-        return self.amp_name
-
+        return self.name
+    
     class Meta:
         db_table = 'main_cmpo'
-    
-
    
         
     

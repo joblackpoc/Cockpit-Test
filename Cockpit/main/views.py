@@ -5,7 +5,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.http import HttpResponse, HttpResponseRedirect
+from django.db.models import Sum
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView, DetailView, CreateView, ListView
@@ -138,6 +139,18 @@ def vote(request, question_id):
         return HttpResponseRedirect(reversed('main:results', args=(question_id)))
 
 def population_chart(request):
-    label = []
+    labels = []
     data = []
+ 
+    queryset = Cmpo.objects.values('name').annotate(population=Sum('population')).order_by('-population') 
+    for entry in queryset:
+        labels.append(entry['name'])
+        data.append(entry['population'])
+     
+    return JsonResponse(data={
+        'labels': labels,
+        'data': data,
+    })
 
+def ChartJS(request):
+    return render(request, 'main/chartjs.html')
