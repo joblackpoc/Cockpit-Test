@@ -137,5 +137,7 @@ def vote(request, question_id):
         selected_choice.save()
         return HttpResponseRedirect(reversed('main:results', args=(question_id)))
 
-
+def population_chart(request):
+    label = []
+    data = []
 
