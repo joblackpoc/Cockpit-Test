@@ -10,7 +10,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import UpdateView, DetailView, CreateView, ListView
 from main.forms import KeyInputForm, PersonForm, UserRegisterForm, UserUpdateForm, ProfileUpdateForm
-from main.models import Ssj, Reponse_kpi, Profile, Kpi, KeyInput, Country, City, Person
+from main.models import Ssj, Reponse_kpi, Profile, Kpi, KeyInput, Country, City, Person, Cmpo
 
 # Create your views here.
 
