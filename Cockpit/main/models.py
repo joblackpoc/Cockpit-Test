@@ -287,39 +287,9 @@ class Kpi_index(models.Model):
     def __str__(self):
         return self.kpi_name
 
-class Kpi_index_Old(models.Model):
-    kpi = models.CharField(max_length=5)
-    kpi_name = models.TextField()
-    ex = models.CharField(max_length=15)
-    goal = models.CharField(max_length=15)
-    cri_type = models.CharField(max_length=55)
-    hdc = models.CharField(max_length=15)
-    respon = models.CharField(max_length=255)
-    etc = models.TextField()
-    kpi_year = models.DateField(null=True, blank=True)
-    success_type = models.CharField(max_length=1)
-    main_kpi_id = models.CharField(max_length=15)
-    unit = models.CharField(max_length=100)
-    static_target = models.CharField(max_length=1)
-    kpi_formular = models.CharField(max_length=255)
-    kpi_formular_script = models.TextField()
-    a = models.TextField()
-    b = models.TextField()
-    c = models.TextField()
-    d = models.TextField()
-    e = models.TextField()
-    f = models.TextField()
-    pa = models.CharField(max_length=1)
-    h_kpi = models.CharField(max_length=1)
-    active = models.CharField(max_length=1)
-    note = models.TextField()
-    target = models.TextField()
-
-    def __str__(self):
-        return self.kpi_name
-
 class Kpi_input(models.Model):
-    kpi_id = models.ForeignKey(Kpi_index, on_delete=models.CASCADE)
+   
+    kpi_id = models.CharField(max_length=5)
     hospcode = models.CharField(max_length=5)
     kpi_month = models.DateField()
     kpi_year = models.DateField(null=True,blank=True)
@@ -351,6 +321,7 @@ class Kpi_input(models.Model):
     kpi_value = models.CharField(max_length=15)
     d_update = models.DateTimeField(default=timezone.now)
     input_date = models.DateTimeField(auto_now_add=())
+    note = models.TextField(null=True, blank=True)
 
     def save(self, *args, **kwargs):
         if not self.id:
@@ -363,7 +334,7 @@ class Kpi_input(models.Model):
 
 class Kpi_prov(models.Model):
     ex = models.CharField(max_length=15)
-    kpi_id = models.ForeignKey(Kpi_index, on_delete=models.CASCADE)
+    kpi_id = models.CharField(max_length=5)
     kpi_year = models.DateField(null=True,blank=True)
     hospcode = models.CharField(max_length=5)
     hosname = models.CharField(max_length=255)
@@ -421,6 +392,3 @@ class Cmpo(models.Model):
     
     class Meta:
         db_table = 'main_cmpo'
-   
-        
-    
