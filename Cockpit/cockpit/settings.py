@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'cockpit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'cockpittest',
+        'NAME': 'newcockpit',
         'HOST': 'localhost',
         'PORT': '3300',
         'USER': 'root',
