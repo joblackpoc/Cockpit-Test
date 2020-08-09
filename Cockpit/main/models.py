@@ -19,7 +19,7 @@ class Ssj(models.Model):
         verbose_name = 'จังหวัด'
         verbose_name_plural = 'จังหวัด'
  
-class Reponse_kpi(models.Model):
+class Reponse(models.Model):
     name = models.CharField(max_length=155, blank=True )
     def __str__(self):
         return self.name
@@ -29,6 +29,13 @@ class Reponse_kpi(models.Model):
         verbose_name = 'กลุ่มงาน'
         verbose_name_plural = 'กลุ่มงาน'
         
+class Excellence(models.Model):
+    short_name = models.CharField(max_length=10)
+    name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.name
+
 class Profile(models.Model):
     ssj_list = (
         ('00068','ชุมพร'),
@@ -71,7 +78,7 @@ class Kpi(models.Model):
     kpi_name = models.TextField(blank=True)
     kpi_group = models.CharField(max_length=15, blank=True)
     kpi_group_name = models.CharField(max_length=55, blank=True)
-    response_kpi = models.ForeignKey(Reponse_kpi, on_delete=models.CASCADE)
+    response = models.ForeignKey(Reponse, on_delete=models.CASCADE)
     goal = models.CharField(max_length=11, blank=True)
     goal_descript = models.TextField(blank=True)
     cri_type = models.CharField(max_length=15, blank=True)
@@ -93,7 +100,7 @@ class KeyInput(models.Model):
     year_list = (('2020', '2563'),)
     kpi = models.ForeignKey(Kpi, on_delete=models.DO_NOTHING)
     hospcode = models.ForeignKey(Ssj, default='00068', on_delete=models.CASCADE)
-    response = models.ForeignKey(Reponse_kpi, default='1', on_delete=models.CASCADE)
+    response = models.ForeignKey(Reponse, default='1', on_delete=models.CASCADE)
     year = models.CharField(max_length=6, choices=year_list, default='2020')
     a1 = models.CharField(max_length=55, blank=True)
     b1 = models.CharField(max_length=55, blank=True)
@@ -136,69 +143,6 @@ class KeyInput(models.Model):
         verbose_name = 'บันทึก KPI'
         verbose_name_plural = 'บันทึก KPI'
 
-class Country(models.Model):
-    name = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        db_table = 'main_country'
-
-class City(models.Model):
-    name = models.CharField(max_length=30)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.name
-    
-    class Meta:
-        db_table = 'main_city'
-
-class Person(models.Model):
-    fname = models.CharField(max_length=100)
-    lname = models.CharField(max_length=100)
-    birth = models.DateField()
-    city = models.ForeignKey(City, on_delete=models.CASCADE)
-    country = models.ForeignKey(Country, on_delete=models.CASCADE)
-    
-    def __str__(self):
-        return self.fname+' - '+self.lname
-    
-    class Meta:
-        db_table = 'main_person'
-
-class Chospcode(models.Model):
-    hospcode = models.CharField(max_length=5)
-    hosname = models.CharField(max_length=255)
-    mu = models.CharField(max_length=2)
-    subdistcode = models.CharField(max_length=2)
-    ampcode = models.CharField(max_length=2)
-    provcode = models.CharField(max_length=2)
-    cupcode = models.CharField(max_length=5)
-
-    def __str__(self):
-        return self.hospcode +' - '+self.hosname
-
-class Dep(models.Model):
-    DEPTID = models.IntegerField(primary_key=True)
-    DEPTNAME = models.CharField(max_length=150)
-    DepJob = models.CharField(max_length=3)
-    DEPTNAMEnew = models.CharField(max_length=150)
-    fstaus = models.CharField(max_length=1)
-    fstatustime = models.CharField(max_length=1)
-    DepJob_old = models.CharField(max_length=3)
-
-    def __str__(self):
-        return self.DepJob +' - '+self.DEPTNAMEnew
-
-class Group(models.Model):
-    group_id = models.IntegerField(primary_key=True)
-    group_name = models.CharField(max_length=150)
-
-    def __str__(self):
-        return self.group_name
-
 class Kpi_eval_prov(models.Model):
     kpi_year = models.DateField(null=True, blank=True)
     hospcode = models.CharField(max_length=5)
@@ -217,13 +161,6 @@ class Kpi_eval_rh(models.Model):
 
     def __str__(self):
         return self.ex
-
-class Kpi_hosp(models.Model):
-    hospcode = models.CharField(max_length=5)
-    kpi_id = models.CharField(max_length=5)
-
-    def __str__(self):
-        return self.hospcode +' - '+self.kpi_id
 
 class Kpi_index(models.Model):
     ex_list = (('pp','PP&P Excellence'),('se','Service'),('pe','People Excellence'),('ge','Government Excellence'),('ncd','NCD'))
@@ -288,7 +225,6 @@ class Kpi_index(models.Model):
         return self.kpi_name
 
 class Kpi_input(models.Model):
-   
     kpi_id = models.CharField(max_length=5)
     hospcode = models.CharField(max_length=5)
     kpi_month = models.DateField()
@@ -332,57 +268,6 @@ class Kpi_input(models.Model):
     def __str__(self):
         return self.hospcode +' - '+self.kpi_value
 
-class Kpi_prov(models.Model):
-    ex = models.CharField(max_length=15)
-    kpi_id = models.CharField(max_length=5)
-    kpi_year = models.DateField(null=True,blank=True)
-    hospcode = models.CharField(max_length=5)
-    hosname = models.CharField(max_length=255)
-    b1 = models.DecimalField(max_digits=19,decimal_places=2)
-    a1 = models.DecimalField(max_digits=19,decimal_places=2)
-    p1 = models.DecimalField(max_digits=19,decimal_places=2)
-    b2 = models.DecimalField(max_digits=19,decimal_places=2)
-    a2 = models.DecimalField(max_digits=19,decimal_places=2)
-    p2 = models.DecimalField(max_digits=19,decimal_places=2)
-    b3 = models.DecimalField(max_digits=19,decimal_places=2)
-    a3 = models.DecimalField(max_digits=19,decimal_places=2)
-    p3 = models.DecimalField(max_digits=19,decimal_places=2)
-    b4 = models.DecimalField(max_digits=19,decimal_places=2)
-    a4 = models.DecimalField(max_digits=19,decimal_places=2)
-    p4 = models.DecimalField(max_digits=19,decimal_places=2)
-    bt = models.DecimalField(max_digits=19,decimal_places=2)
-    at = models.DecimalField(max_digits=19,decimal_places=2)
-    pt = models.DecimalField(max_digits=19,decimal_places=2)
-    goal = models.CharField(max_length=15)
-    time = models.DateTimeField(null=True,blank=True)
-
-    def __str__(self):
-        return self.ex +' - '+self.hosname
-
-class Pk_byear(models.Model):
-    year_list = (('2020','2563'),)
-    yearprocess = models.DateField(max_length=4,default='2020',choices=year_list)
-
-    def __str__(self):
-        return self.yearprocess
-
-class Task(models.Model):
-    user_hospcode = models.ForeignKey(Chospcode, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    kpi_id = models.TextField()
-    note = models.TextField()
-
-    def __str__(self):
-        return self.user_hospcode +' - '+self.kpi_id
-
-class Trole(models.Model):
-    code = models.CharField(max_length=15)
-    name = models.CharField(max_length=155)
-    type_group = models.CharField(max_length=15)
-
-    def __str__(self):
-        return self.code +' - '+self.name
-
 class Cmpo(models.Model):
     name = models.CharField(max_length=30)
     population = models.PositiveIntegerField()
@@ -392,3 +277,77 @@ class Cmpo(models.Model):
     
     class Meta:
         db_table = 'main_cmpo'
+
+class Group(models.Model):
+    name = models.CharField(max_length=55)
+
+    def __str__(self):
+        return self.name
+    
+    class Meta:
+        db_table = 'main_group'
+
+class Index(models.Model):
+    
+    name = models.CharField(max_length=255)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    kpi_code = models.CharField(max_length=15,unique=True)
+    excellence= models.ForeignKey(Excellence, on_delete=models.CASCADE)
+    goal = models.CharField(max_length=11, blank=True)
+    goal_descript = models.TextField(blank=True)
+    cri_type = models.CharField(max_length=15, blank=True)
+    unit = models.CharField(max_length=55, blank=True)
+    formular = models.CharField(max_length=55, blank=True)
+    formular_type = models.CharField(max_length=15, blank=True)
+    descript_a = models.TextField(blank=True)
+    descript_b = models.TextField(blank=True) 
+
+    def __str__(self):
+        return self.name
+        
+    class Meta:
+        db_table = 'main_index'
+
+class Input(models.Model):
+    
+    year_list = (('2020', '2563'),)
+    year = models.CharField(max_length=6, choices=year_list, default='2020')
+    ssj = models.ForeignKey(Ssj, default='00068', on_delete=models.CASCADE)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
+    index = models.ForeignKey(Index, on_delete=models.CASCADE)
+    a1 = models.IntegerField()
+    b1 = models.IntegerField()
+    a2 = models.IntegerField()
+    b2 = models.IntegerField()
+    a3 = models.IntegerField()
+    b3 = models.IntegerField()
+    a4 = models.IntegerField()
+    b4 = models.IntegerField()
+    a5 = models.IntegerField()
+    b5 = models.IntegerField()
+    a6 = models.IntegerField()
+    b6 = models.IntegerField()
+    a7 = models.IntegerField()
+    b7 = models.IntegerField()
+    a8 = models.IntegerField()
+    b8 = models.IntegerField()
+    a9 = models.IntegerField()
+    b9 = models.IntegerField()
+    a10 = models.IntegerField()
+    b10 = models.IntegerField()
+    a11 = models.IntegerField()
+    b11 = models.IntegerField()
+    a12 = models.IntegerField()
+    b12 = models.IntegerField()
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    input_update = models.DateTimeField(default = timezone.now)
+
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.created = timezone.now()
+        self.modified = timezone.now()
+        return super(KeyInput, self).save(*args, **kwargs)
+        
+
+    def __str__(self):
+        return self.user.first_name

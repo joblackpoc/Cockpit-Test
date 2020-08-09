@@ -61,6 +61,9 @@
 					    <a href="{% url 'home' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-home"></i></span><span class="pcoded-mtext">HOME</span></a>
 					</li>
 					<li class="nav-item">
+					    <a href="{% url 'input' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-user m-r-5"></i></span><span class="pcoded-mtext">Input</span></a>
+					</li>
+					<li class="nav-item">
 					    <a href="{% url 'kpilistview' %}" class="nav-link "><span class="pcoded-micon"><i class="feather icon-align-justify"></i></span><span class="pcoded-mtext">คำอธิบายตัวชี้วัด KPI</span></a>
 					</li>
 					<li class="nav-item">
@@ -135,8 +138,6 @@
 			
 	</header>
 	<!-- [ Header ] end -->
-	
-	
 
 <!-- [ Main Content ] start -->
 
@@ -145,16 +146,13 @@
 {% endblock content %}
     
 <!-- [ Main Content ] end -->
-
     <!-- Required Js -->
     <script src="{% static 'assets/js/vendor-all.min.js' %}"></script>
     <script src="{% static 'assets/js/plugins/bootstrap.min.js' %}"></script>
     <script src="{% static 'assets/js/ripple.js' %}"></script>
     <script src="{% static 'assets/js/pcoded.min.js' %}"></script>
-
 	<!-- Apex Chart -->
 	<script src="{% static 'assets/js/plugins/apexcharts.min.js' %}"></script>
-
 	<!-- custom-chart js -->
 	<script src="{% static 'assets/js/pages/dashboard-main.js' %}"></script>
 </body>
